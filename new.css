@@ -1,0 +1,91 @@
+.header {
+  padding: 60px;
+  background: #006bb3;
+  color: white;
+}
+
+.header h1 {
+  font-size: 50px;
+  text-align: left;
+  margin-bottom: -35px;
+  margin-top: 5px;
+  margin-left: -20px;
+}
+
+.container-fluid{
+ background-color: #d0e1e1;
+  color: black;
+}
+
+.icon{
+	text-align: right;
+	margin-bottom: -45px;
+    margin-top: 5px;
+    margin-right: 0px;
+	color: white;
+}
+
+input[type=text]{
+  width: 90%;
+  padding: 15px 0;
+  margin: 15px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  text-align: left;
+}
+
+.form-group{
+  margin: 15px 0 0 0 ;
+  padding: 0 15px;
+}
+
+input[type=text]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top:10%
+  z-index: 0;
+  left: 88%;
+  background-color:   #b6bbc9;
+  overflow-y: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar .btn{
+  padding: 0 15px;
+   margin: 0 0 0 130px  ;
+   background-color: #006bb3;
+   color: white;
+   font-size: 20px;
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+#name{
+  color:  #006bb3;
+  font-size: 20px;
+  text-align: center;
+}
