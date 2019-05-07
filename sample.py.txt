@@ -1,17 +1,14 @@
 from flask import Flask
 from flask import render_template
 app = Flask(__name__)
-notes =	{
-  "prabhu": ("PPM_02", "roto needs improvement"),
-  "shiva": ("PPM_03", "2d needs improvement"),
-  "vijay": ("PPM_04", "3d needs improvement"),
+benjamin =	{
+  "PPM_01": ("2d", "roto needs improvement","prabhu","improve"),
+  "PPM_02": ("3d", "2d needs improvement","shiva ","improve"),
+  "PPM_03": ("roto", "3d needs improvement","vijay","ok"),
+  "PPM_04": ("paint", "paint needs improvement","jeeva","ok"),
+  "PPM_05": ("render", "render needs improvement","santhosh","improve"),
 }
-user={
-    "pname":("roto","2d","3d","paint"),
-    "tname":("roto","2d","3d","paint")
-}
-
 cpl = [1, 2, 3, 4, 5]
 @app.route('/')
 def hello_world():
-    return render_template("index.html",notes=notes,user=user)
+    return render_template("index.html",user=benjamin)
