@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/initial.css">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/all.min.css">
+    <link rel="stylesheet" href="../static/brands.min.css">
+    <link rel="stylesheet" href="../static/fontawesome.min.css">
+    <link rel="stylesheet" href="../static/regular.min.css">
+    <link rel="stylesheet" href="../static/solid.min.css">
+    <link rel="stylesheet" href="../static/svg-with-js.min.css">
+    <link rel="stylesheet" href="../static/v4-shims.min.css">
+  <script  src="../static/all.min.js"></script>
+  <script  src="../static/brands.min.js"></script>
+  <script  src="../static/fontawesome.min.js"></script>
+  <script  src="../static/solid.min.js"></script>
+  <script  src="../static/regular.min.js"></script>
+  <script  src="../static/v4-shims.min.js"></script>
+
+  <title>Notesfeed</title>
+  </head>
+  <body>
+   <div class="header">
+   <h1>&nbsp;notesfeed <span  class="icon"><i id="button1" class="fas fa-bars" onclick="openNav()"></i></span></h1>
+   </div>
+  <div id="mySidebar" class="sidebar">
+  <p id="name"><svg width="40" height="15">
+      <rect x="18" y="0"  width="15" height="15" style="fill:#006bb3;opacity:1" /></svg><b>benjamin</b></p>
+  <form action="/action_page.php">
+    <div class="form-group">
+  <select name="project" required>
+      <option value="" disabled>project name</option>
+      {%for i in user['pname']%}
+      <option value={{i}}>{{i}}</option>
+      {%endfor%}
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="scope name" id="pname" autocomplete="on">
+  </div>
+   <div class="form-group">
+      <select  name="type" required>
+          <option value="" disabled>type name</option>
+        {%for i in user['tname']%}
+      <option value={{i}}>{{i}}</option>
+      {%endfor%}
+        </select>
+  </div>
+  <br>
+  <button type="submit" class="btn "><b>filter</b></button>
+</form>
+</div>
+<div >
+{%for key in notes%}
+ <article style="text-align: left;background-color: #cfcec9;font-size: 20px;padding: 15px;margin-bottom:5px;margin-top:10px;">
+     <p><span class="hl">{{key}}</span> on <span class="hl">{{notes[key][0]}}</span></p>
+     <p style="margin-left:60px;"><i>{{notes[key][1]}}</i></p>
+ </article>
+   {%endfor%}
+</div>
+  <script>
+    $(function() {
+    $("#button1").click(function() {
+        $(this).find("i").toggleClass("fas fa-bars fas fa-times");
+    });
+});
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("button1").className="fas fa-times";
+  document.getElementById("button1").onclick=closeNav;
+}
+function closeNav() {
+  document.getElementById("mySidebar").style.width = 0;
+  document.getElementById("button1").className="fas fa-bars";
+  document.getElementById("button1").onclick=openNav;
+}
+</script>
+  <script type="text/javascript" src="../static/new1.js"></script>
+  <script type="text/javascript" src="../static/new2.js"></script>
+  <script type="text/javascript" src="../static/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

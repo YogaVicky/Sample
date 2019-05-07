@@ -1,0 +1,126 @@
+.header {
+  height: 116px;
+  background: #006bb3;
+  color: white;
+}
+
+.header h1 {
+  font-size: 40px;
+  text-align: left;
+  line-height: 10rem;
+}
+
+.container-fluid{
+ background-color: #d0e1e1;
+  color: black;
+}
+
+.icon{
+  position: relative;
+  left:86%;
+  line-height:40px;
+  color: white;
+}
+
+input[type=text]{
+  width: 80%;
+  padding: 5px 0;
+  margin: 4px 0 2px 0;
+  display: inline-block;
+  border: none;
+  background: #c3c2bb;
+  text-align: center;
+}
+select{
+  width: 80%;
+  padding: 5px 0;
+  margin: 15px 0 2px 0;
+  display: inline-block;
+  border: none;
+  background: #c3c2bb;
+  text-align: center;
+  color:#006bb3;
+}
+
+.form-group{
+  margin: 15px 0 0 0 ;
+  padding: 0 15px;
+}
+
+input[type=text]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+.sidebar {
+  height: 88%;
+  width: 0;
+  position: absolute;
+  top:12%;
+  z-index: 0;
+  right:0;
+  background-color:   #e7e6e4;
+  overflow-y: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
+}
+
+.sidebar .btn{
+   margin: 0 0 0 130px  ;
+   background-color: #006bb3;
+   color: white;
+   font-size: 20px;
+  padding: 3px 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#name{
+  position: relative;
+  color:  #006bb3;
+  font-size: 20px;
+  text-align: left;
+  top:-10px;
+  bottom: 30px;
+}
+
+input::-webkit-input-placeholder {
+  color: #006bb3 !important;
+  }
+
+  input:-moz-placeholder { /* Firefox 18- */
+  color: #006bb3  !important;
+  }
+
+  input::-moz-placeholder {  /* Firefox 19+ */
+  color:#006bb3 !important;
+  }
+
+  input:-ms-input-placeholder {
+  color:#006bb3 !important;
+  }
+
+  input[type="text"]::placeholder {
+
+    /* Firefox, Chrome, Opera */
+    text-align: center;
+}
+
+option[value=””][disabled] {
+  display: none;
+  }
+
+.hl{
+color:#006bb3;
+}
