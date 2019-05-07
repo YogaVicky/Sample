@@ -117,10 +117,13 @@ input::-webkit-input-placeholder {
     text-align: center;
 }
 
-option[value=””][disabled] {
+option[value=â€â€][disabled] {
   display: none;
   }
 
 .hl{
 color:#006bb3;
 }
+
+
+
