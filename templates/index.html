@@ -7,83 +7,106 @@
     <link rel="stylesheet" href="../static/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/all.min.css">
     <link rel="stylesheet" href="../static/brands.min.css">
     <link rel="stylesheet" href="../static/fontawesome.min.css">
     <link rel="stylesheet" href="../static/regular.min.css">
     <link rel="stylesheet" href="../static/solid.min.css">
     <link rel="stylesheet" href="../static/svg-with-js.min.css">
-    <link rel="stylesheet" href="../static/v4-shims.min.css">
+    <link rel="stylesheet" href="../static/v4-shims.min.css"><link rel="stylesheet" href="../static/v4-shims.min.css">
+      <link rel="stylesheet" href="../static/font-awesome.min.css">
+      <link rel="stylesheet" href="../static/font-awesome.css">
   <script  src="../static/all.min.js"></script>
   <script  src="../static/brands.min.js"></script>
   <script  src="../static/fontawesome.min.js"></script>
   <script  src="../static/solid.min.js"></script>
   <script  src="../static/regular.min.js"></script>
   <script  src="../static/v4-shims.min.js"></script>
-
   <title>Notesfeed</title>
   </head>
   <body>
    <div class="header">
-   <h1>&nbsp;notesfeed <span  class="icon"><i id="button1" class="fas fa-bars" onclick="openNav()"></i></span></h1>
+   <h1>&nbsp;notesfeed <span  class="icon"><i id="button1" class="fa fa-bars" onclick="openNav()"></i></span></h1>
    </div>
   <div id="mySidebar" class="sidebar">
   <p id="name"><svg width="40" height="15">
       <rect x="18" y="0"  width="15" height="15" style="fill:#006bb3;opacity:1" /></svg><b>benjamin</b></p>
-  <form action="/">
+  <form  onsubmit="return false">
     <div class="form-group">
-  <select name="project" required>
-      <option value="" disabled>project name</option>
+  <select  id="p" name="project">
+      <option value="" style="color:grey">project name</option>
      {%for key in user%}
       <option value={{key}}>{{key}}</option>
       {%endfor%}
     </select>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="scope name" id="pname" autocomplete="on">
+    <input type="text" class="form-control" placeholder="scope name" id="s" >
   </div>
    <div class="form-group">
-      <select  name="type" required>
-          <option value="" disabled>type name</option>
+      <select id="t" name="type" >
+          <option value="" style="color:grey">type name</option>
          {%for key in user%}
       <option value={{user[key][0]}}>{{user[key][0]}}</option>
       {%endfor%}
         </select>
   </div>
   <br>
-  <button type="submit" class="btn "><b>filter</b></button>
+  <button  onclick="filterSelection()" class="btn "><b>filter</b></button>
 </form>
 </div>
 <div >
 {%for key in user%}
- <article style="text-align: left;background-color: #cfcec9;font-size: 20px;padding: 15px;margin-bottom:5px;margin-top:10px;">
-     <p><span class="hl">{{user[key][2]}}</span> on <span class="hl">{{key}}</span></p>
+ <article class=" filterDiv {{user[key][3]}} {{key}} {{user[key][0]}}" style="text-align: left;background-color: #cfcec9;font-size: 20px;padding: 15px;margin-bottom:5px;margin-top:10px;">
+     <p><span class="hl">{{user[key][2]}}</span> on <span id="demo2" class="hl ">{{key}}</span></p>
      <p style="margin-left:60px;"><i>{{user[key][1]}}</i></p>
  </article>
    {%endfor%}
+    <p id="demo"></p>
 </div>
   <script>
-    $(function() {
-    $("#button1").click(function() {
-        $(this).find("i").toggleClass("fas fa-bars fas fa-times");
-    });
-});
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("button1").className="fas fa-times";
+  document.getElementById("button1").className="fa fa-bell";
   document.getElementById("button1").onclick=closeNav;
 }
 function closeNav() {
   document.getElementById("mySidebar").style.width = 0;
-  document.getElementById("button1").className="fas fa-bars";
+  document.getElementById("button1").className="fa fa-close";
   document.getElementById("button1").onclick=openNav;
 }
-function filter(){
-  {%for key in user%}
-   if(user[key][0]!='2d')
-   
-  {%endfor)
+filterSelection()
+function filterSelection() {
+  var x, i;
+  var p=document.getElementById("p").value;
+  var c=document.getElementById("s").value;
+  var t=document.getElementById("t").value;
+  x = document.getElementsByClassName("filterDiv");
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1 && x[i].className.indexOf(p) > -1 && x[i].className.indexOf(t) > -1 ) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
 }
 </script>
   <script type="text/javascript" src="../static/new1.js"></script>
